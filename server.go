@@ -17,11 +17,13 @@ func main() {
 
 	setRoutes()
 
-	http.ListenAndServe("localhost:8080", nil)
+	log.Fatal(http.ListenAndServe("localhost:8080", nil))
 }
 
 func setRoutes() {
+	// setting websocket
 	http.HandleFunc("/echo", echo)
+	// setting index.html 靜態頁面
 	http.HandleFunc("/", index)
 
 }
